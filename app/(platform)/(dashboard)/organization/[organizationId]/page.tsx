@@ -1,29 +1,17 @@
 import { db } from "@/lib/db";
+import { Form } from "./form";
 
-const page = () => {
-  async function create(formData: FormData) {
-    "use server";
-
-    const title = formData.get("title") as string;
-
-    await db.board.create({
-      data: {
-        title,
-      },
-    });
-  }
+const page = async () => {
+  const boards = await db.board.findMany();
 
   return (
-    <div>
-      <form action={create}>
-        <input
-          id="title"
-          name="title"
-          required
-          placeholder="Enter a board title"
-          className="border-black border p-1"
-        />
-      </form>
+    <div className="flex flex-col space-y-4">
+      <Form />
+      <div className="space-y-2">
+        {boards.map((board) => (
+          <div key={board.id}>{board.title}</div>
+        ))}
+      </div>
     </div>
   );
 };
