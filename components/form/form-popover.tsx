@@ -68,7 +68,7 @@ export const FormPopover = ({
             className="h-auto w-auto p-2 absolute top-2 right-2 text-neutral-600"
             variant="ghost"
           >
-            <X />
+            <X className="h-4 w-4" />
           </Button>
         </PopoverClose>
         <form action={onSubmit} className="space-y-4">
