@@ -24,8 +24,6 @@ export const MobileSidebar = () => {
     onClose();
   }, [pathname, onClose]);
 
-  console.log(isOpen);
-
   if (!isMounted) return null;
 
   return (
