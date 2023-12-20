@@ -6,7 +6,8 @@ import { QueryProvider } from "@/components/providers/query-provider";
 const layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <ClerkProvider>
-      <QueryProvider> {/** <= これのみがuser side */}
+      <QueryProvider>
+        {/** ^ これのみがuser side */}
         <Toaster />
         <ModalProvider />
         {children}
